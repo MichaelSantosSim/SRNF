@@ -1,6 +1,6 @@
 package br.com.srnf.notafiscal.bean;
 
-public class Endereco {
+public class EnderecoBean {
 	
 	private String bairro;
 	private String cep;
@@ -9,6 +9,7 @@ public class Endereco {
 	private String estado;
 	private int numero;
 	private String pais;
+	private String logradouro;
 	private String tipoLogradouro;
 	
 	public String getBairro() {
@@ -58,6 +59,12 @@ public class Endereco {
 	}
 	public void setTipoLogradouro(String tipoLogradouro) {
 		this.tipoLogradouro = tipoLogradouro;
+	}
+	public String getLogradouro() {
+		return logradouro;
+	}
+	public void setLogradouro(String logradouro) {
+		this.logradouro = logradouro;
 	}
 	
 	

@@ -1,8 +1,8 @@
 package br.com.srnf.notafiscal.bean;
 
-public class NotaFiscal {
+public class NotaFiscalBean {
 	
-	private Tomador tomador;
+	private TomadorBean tomador;
 	private boolean tomadorEstrangeiro;
 	private String informacoesAdicionais;
 	private String atividade;
@@ -20,10 +20,10 @@ public class NotaFiscal {
 	private String cepPrestacaoServico;
 	private String estadoPrestacaoServico;
 	
-	public Tomador getTomador() {
+	public TomadorBean getTomador() {
 		return tomador;
 	}
-	public void setTomador(Tomador tomador) {
+	public void setTomador(TomadorBean tomador) {
 		this.tomador = tomador;
 	}
 	public boolean isTomadorEstrangeiro() {

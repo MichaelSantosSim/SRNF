@@ -7,14 +7,21 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import br.com.srnf.notafiscal.dao.EnderecoDao;
+
 public class View extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		EnderecoDao.load();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

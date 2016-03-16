@@ -1,6 +1,6 @@
 package br.com.srnf.notafiscal.bean;
 
-public class Tomador {
+public class TomadorBean {
 	
 	private String cnpj;
 	private String cpf;
