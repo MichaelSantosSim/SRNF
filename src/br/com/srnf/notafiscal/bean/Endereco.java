@@ -1,7 +1,8 @@
 package br.com.srnf.notafiscal.bean;
 
-public class EnderecoBean {
+public class Endereco {
 	
+	private int id;
 	private String bairro;
 	private String cep;
 	private String cidade;
@@ -12,6 +13,14 @@ public class EnderecoBean {
 	private String logradouro;
 	private String tipoLogradouro;
 	
+	
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getBairro() {
 		return bairro;
 	}

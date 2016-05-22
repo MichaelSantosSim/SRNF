@@ -2,12 +2,17 @@ package br.com.srnf.notafiscal;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Scanner;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import br.com.srnf.notafiscal.bean.Endereco;
 import br.com.srnf.notafiscal.dao.EnderecoDao;
+import br.com.srnf.notafiscal.test.TestMenu;
 
 public class View extends JFrame {
 
@@ -20,18 +25,21 @@ public class View extends JFrame {
 	/**
 	 * Launch the application.
 	 */
+	
+
+	
 	public static void main(String[] args) {
-		EnderecoDao.load();
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					View frame = new View();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		TestMenu.showMenu();		
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					View frame = new View();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
 	}
 
 	/**

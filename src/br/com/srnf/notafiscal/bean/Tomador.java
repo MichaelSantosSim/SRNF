@@ -1,11 +1,18 @@
 package br.com.srnf.notafiscal.bean;
 
-public class TomadorBean {
+public class Tomador {
 	
+	private int id;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	private String cnpj;
 	private String cpf;
 	private int ddd;
-	private String endereco;
+	private Endereco endereco;
 	private String inscricaoMunicipal;
 	private String nome;
 	private String telefone;
@@ -29,10 +36,10 @@ public class TomadorBean {
 	public void setDdd(int ddd) {
 		this.ddd = ddd;
 	}
-	public String getEndereco() {
+	public Endereco getEndereco() {
 		return endereco;
 	}
-	public void setEndereco(String endereco) {
+	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
 	public String getInscricaoMunicipal() {

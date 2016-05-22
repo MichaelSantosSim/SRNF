@@ -14,10 +14,10 @@ public class DBConnection {
 			Class.forName(driverName);
 
 			String serverName = "localhost";
-			String myDataBase = "srnf";
+			String myDataBase = "SURNF";
 			String url = "jdbc:mysql://" + serverName + "/" + myDataBase + "?useSSL=false";
 			String username = "root";
-			String password = "rrrcqdl38";
+			String password = "password";
 			connection = DriverManager.getConnection(url, username, password);
 			
 			if(connection != null){
@@ -35,6 +35,10 @@ public class DBConnection {
 			System.out.println("DBConnection.getConnection: " + e.getMessage());
 			return null;
 		}
+	}
+	
+	public static java.sql.Statement getStatement() throws SQLException{
+		return getConnection().createStatement();
 	}
 	
 	public static String status(){
