@@ -16,12 +16,15 @@ public class TestMenu {
 		int option = -1;
 		
 		while(option != 0){  
-			System.out.println("1 - exibir um item da tabela\n2 - Adicionar um novo item\n3 - Adicionar novo Tomador\n0 - Sair");
+			System.out.println("1 - Exibir Endereco\n2 - Adicionar um novo Endereco\n3 - Adicionar novo Tomador\n4 - Exibir Tomador\n0 - Sair");
 			option = scan.nextInt();
 			switch(option){
-				case 1 : System.out.print("Digite o id: "); showEndereco(scan.nextInt());break;
-				case 2 : cadastrarNovoEndereco();break;
-				case 3 : cadastrarNovoTomador();
+				case 1 : System.out.print("Digite o id: "); showEndereco(scan.nextInt()); break;
+				case 2 : cadastrarNovoEndereco(); break;
+				case 3 : cadastrarNovoTomador(); break;
+				case 4 : System.out.print("Digite o id: "); showTomador(scan.nextInt()); break;
+				case 0 : System.out.println("Saindo..."); break;
+				default : System.out.println("Selecione uma opcao valida"); break;
 			}
 		}
 	}
@@ -46,7 +49,7 @@ public class TestMenu {
 		
 		
 		try {
-			System.out.println("\nID Endereco: ");
+			System.out.print("\nID Endereco: ");
 			tomador.setEndereco(EnderecoDao.getWithId(scan.nextInt()));
 		} catch (SQLException e) {
 			System.out.println("ERRO, ID DO ENDERECO NAO ENCONTRADO!\n" + e.getMessage());
@@ -59,6 +62,18 @@ public class TestMenu {
 		}
 		
 		
+	}
+	
+	public static void showTomador(int id){
+		try{
+			
+			Tomador tomador = TomadorDao.getWithId(id);
+			System.out.println();
+			System.out.println(getString(tomador));
+			
+		}catch(SQLException e){
+			System.out.println("ShowTomador Erro " + e.getMessage());
+		}
 	}
 	
 	public static void cadastrarNovoEndereco(){
@@ -106,28 +121,35 @@ public class TestMenu {
 	
 	public static void showEndereco(int id){
 		try{
+			
 			Endereco endereco = EnderecoDao.getWithId(id);
-			
-//			Rua Pequeno Principe, 154 - Bloco 6 apto 7
-//			Recanto das Flores, Cratera/MT
-//			Cep 12345-678 - Marte.
-			
 			System.out.println();
-			
-			String res =  endereco.getTipoLogradouro() + " "
-						+ endereco.getLogradouro() + ", "
-						+ endereco.getNumero() + " - "
-						+ endereco.getComplemento() + "\n"
-						+ endereco.getBairro() + ", "
-						+ endereco.getCidade() + "/"
-						+ endereco.getEstado() + "\nCep: "
-						+ endereco.getCep() + " - "
-						+ endereco.getPais() + ".\n";
-			
-			System.out.println(res);
+			System.out.println(getString(endereco));
 			
 		}catch(SQLException e){
 			System.out.println("NAO FOI POSSIVEL EXIBIR O ENDERECO");
 		}
+	}
+	
+	public static String getString(Tomador tomador){
+		return "Nome: " + tomador.getNome() + "\n"
+				+ "CNPJ: " + tomador.getCnpj() + "\n"
+				+ "CPF: " + tomador.getCpf() + "\n"
+				+ "Inscr. Municip.: " + tomador.getInscricaoMunicipal() + "\n"
+				+ "Telefone: (" + tomador.getDdd() + ")" + tomador.getTelefone() + "\n"
+				+ "Endereco: \n"
+				+ getString(tomador.getEndereco());
+	}
+	
+	public static String getString(Endereco endereco){
+		return endereco.getTipoLogradouro() + " "
+				+ endereco.getLogradouro() + ", "
+				+ endereco.getNumero() + " - "
+				+ endereco.getComplemento() + "\n"
+				+ endereco.getBairro() + ", "
+				+ endereco.getCidade() + "/"
+				+ endereco.getEstado() + "\nCep: "
+				+ endereco.getCep() + " - "
+				+ endereco.getPais() + ".\n";
 	}
 }

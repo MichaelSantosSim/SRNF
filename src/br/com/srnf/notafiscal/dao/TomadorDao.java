@@ -11,13 +11,14 @@ public class TomadorDao {
 		java.sql.ResultSet rs = DBConnection.getStatement().executeQuery("SELECT * FROM tomador WHERE tomador_id = " + id);	
 		rs.next();
 		
-		tomador.setCnpj(rs.getString(1));
-		tomador.setCpf(rs.getString(2));
-		tomador.setInscricaoMunicipal(rs.getString(3));
-		tomador.setNome(rs.getString(4));
-		tomador.setEndereco(EnderecoDao.getWithId(rs.getInt(5)));
-		tomador.setDdd(rs.getInt(6));
-		tomador.setTelefone(rs.getString(7));
+		tomador.setId(rs.getInt(1));
+		tomador.setCnpj(rs.getString(2));
+		tomador.setCpf(rs.getString(3));
+		tomador.setInscricaoMunicipal(rs.getString(4));
+		tomador.setNome(rs.getString(5));
+		tomador.setEndereco(EnderecoDao.getWithId(rs.getInt(6)));
+		tomador.setDdd(rs.getInt(7));
+		tomador.setTelefone(rs.getString(8));
 		
 		
 		return tomador;
@@ -36,7 +37,7 @@ public class TomadorDao {
 				+ tomador.getEndereco().getId()+ ", \""
 				+ tomador.getDdd() + "\", \""
 				+ tomador.getTelefone()+ "\")";
-		System.out.println(cmd);
+
 		stmt.executeUpdate(cmd);
 	}
 }

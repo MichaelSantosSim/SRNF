@@ -33,3 +33,7 @@ INSERT INTO tomador( cnpj_sn, cpf_sn, inscricao_municipal_sn, nome_ln, endereco_
 -- DELETAR DADOS DA TABELA TOMADOR
 
 DELETE FROM tomador WHERE tomador_id = @id;
+
+-- RESETAR AUTO INCREMENT
+
+ALTER TABLE tomador AUTO_INCREMENT=1;
