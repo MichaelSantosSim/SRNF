@@ -13,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 import br.com.srnf.notafiscal.bean.Endereco;
 import br.com.srnf.notafiscal.dao.EnderecoDao;
 import br.com.srnf.notafiscal.test.TestMenu;
+import javax.swing.JButton;
 
 public class View extends JFrame {
 
@@ -51,8 +52,11 @@ public class View extends JFrame {
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnBotao = new JButton("Botao");
+		btnBotao.setBounds(155, 114, 97, 25);
+		contentPane.add(btnBotao);
 	}
-
 }

@@ -2,6 +2,7 @@ package br.com.srnf.notafiscal.bean;
 
 public class NotaFiscal {
 	
+	private int id;
 	private Tomador tomador;
 	private boolean tomadorEstrangeiro;
 	private String informacoesAdicionais;
@@ -20,6 +21,12 @@ public class NotaFiscal {
 	private String cepPrestacaoServico;
 	private String estadoPrestacaoServico;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public Tomador getTomador() {
 		return tomador;
 	}

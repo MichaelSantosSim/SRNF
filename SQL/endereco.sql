@@ -37,7 +37,7 @@ DROP TABLE endereco;
 
 
 -- DELETES EM ENDERECO
-DELETE FROM endereco WHERE endereco_id = 2;
+DELETE FROM endereco WHERE endereco_id = 3;
 
 
 -- resetar auto increment
