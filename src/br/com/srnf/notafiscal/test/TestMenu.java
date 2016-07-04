@@ -3,6 +3,7 @@ package br.com.srnf.notafiscal.test;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import b.com.srnf.exceptions.InvalidArgumentException;
 import br.com.srnf.notafiscal.bean.Endereco;
 import br.com.srnf.notafiscal.bean.NotaFiscal;
 import br.com.srnf.notafiscal.bean.Tomador;
@@ -13,7 +14,8 @@ import br.com.srnf.notafiscal.dao.TomadorDao;
 public class TestMenu {
 	
 	
-	public static void showMenu(){
+	public static void showMenu() throws InvalidArgumentException{
+		
 		Scanner scan = new Scanner(System.in);
 		int option = -1;
 		
@@ -32,6 +34,8 @@ public class TestMenu {
 				default : System.out.println("Selecione uma opcao valida"); break;
 			}
 		}
+		
+		scan.close();
 	}
 	
 	public static void showNotaFiscal(int id){
@@ -107,6 +111,8 @@ public class TestMenu {
 			NotaFiscalDao.addNotaFiscal(nota);
 		} catch (SQLException e) {
 			System.out.println("CadastarNovaNota Erro: " + e.getMessage());
+		}finally{
+			scan.close();
 		}
 	}
 	
@@ -132,17 +138,12 @@ public class TestMenu {
 		try {
 			System.out.print("\nID Endereco: ");
 			tomador.setEndereco(EnderecoDao.getWithId(scan.nextInt()));
-		} catch (SQLException e) {
-			System.out.println("ERRO, ID DO ENDERECO NAO ENCONTRADO!\n" + e.getMessage());
-		}
-		
-		try {
 			TomadorDao.addTomador(tomador);
 		} catch (SQLException e) {
 			System.out.println("ERRO AO CADASTRAR TOMADOR\n" + e.getMessage());
+		}finally{
+			scan.close();
 		}
-		
-		
 	}
 	
 	public static void showTomador(int id){
@@ -196,6 +197,8 @@ public class TestMenu {
 			EnderecoDao.addEndereco(endereco);
 		} catch (SQLException e) {
 			System.out.println("NAO FOI POSSIVEL SALVAR O ENDERECO");
+		}finally{
+			scan.close();
 		}
 		
 	}

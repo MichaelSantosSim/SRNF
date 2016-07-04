@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 public class DBConnection {
 	
-	public static String status = "Not Connected";
+	private static String status = "Not Connected";
 	
 	public static java.sql.Connection getConnection(){
 		Connection connection = null;

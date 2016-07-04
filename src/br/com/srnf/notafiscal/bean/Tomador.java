@@ -3,12 +3,6 @@ package br.com.srnf.notafiscal.bean;
 public class Tomador {
 	
 	private int id;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	private String cnpj;
 	private String cpf;
 	private int ddd;
@@ -17,6 +11,12 @@ public class Tomador {
 	private String nome;
 	private String telefone;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	public String getCnpj() {
 		return cnpj;

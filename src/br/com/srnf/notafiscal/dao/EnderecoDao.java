@@ -9,21 +9,28 @@ public class EnderecoDao {
 	
 	public static Endereco getWithId(int id) throws SQLException{
 		
-		Endereco endereco = new Endereco();
-		java.sql.ResultSet rs = DBConnection.getStatement().executeQuery("SELECT * FROM endereco WHERE endereco_id = " + id);
-		rs.next();
-		endereco.setId(rs.getInt(1));
-		endereco.setTipoLogradouro(rs.getString(2));
-		endereco.setLogradouro(rs.getString(3));
-		endereco.setNumero(rs.getInt(4));
-		endereco.setComplemento(rs.getString(5));
-		endereco.setBairro(rs.getString(6));
-		endereco.setCidade(rs.getString(7));
-		endereco.setCep(rs.getString(8));
-		endereco.setEstado(rs.getString(9));
-		endereco.setPais(rs.getString(10));
-		
-		return endereco;
+		try{
+			Endereco endereco = new Endereco();
+			java.sql.ResultSet rs = DBConnection.getStatement().executeQuery("SELECT * FROM endereco WHERE endereco_id = " + id);
+			rs.next();
+			endereco.setId(rs.getInt(1));
+			endereco.setTipoLogradouro(rs.getString(2));
+			endereco.setLogradouro(rs.getString(3));
+			endereco.setNumero(rs.getInt(4));
+			endereco.setComplemento(rs.getString(5));
+			endereco.setBairro(rs.getString(6));
+			endereco.setCidade(rs.getString(7));
+			endereco.setCep(rs.getString(8));
+			endereco.setEstado(rs.getString(9));
+			endereco.setPais(rs.getString(10));
+			
+			return endereco;
+		}catch(SQLException e){
+			e.printStackTrace();
+			throw e;
+		}finally{
+			DBConnection.closeConnection();
+		}
 	}
 	
 	public static void addEndereco(Endereco endereco) throws SQLException{
